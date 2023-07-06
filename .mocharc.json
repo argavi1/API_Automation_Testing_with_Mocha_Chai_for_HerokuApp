@@ -1,0 +1,6 @@
+{
+    "reporter" : "mochawesome",
+    "recursive" : true,
+    "node-option" : ["es-module-specifier-resolution=node"],
+    "require" : ["dotenv/config"]
+}
