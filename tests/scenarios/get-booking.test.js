@@ -16,7 +16,7 @@ describe('Get booking', () => {
 
     it('Get list booking filtered by checkin & checkout successfully', async() => {
         const param = getParams(data.LIST_BOOKING_PARAM)
-        const response = await herokuappAPI.list_booking();
+        const response = await herokuappAPI.list_booking(param);
 
         assert.equal(response.status, 200);
 
