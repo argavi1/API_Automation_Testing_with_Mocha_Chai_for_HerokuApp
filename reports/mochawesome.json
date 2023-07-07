@@ -1,14 +1,14 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "suites": 4,
+    "tests": 5,
+    "passes": 5,
     "pending": 0,
     "failures": 0,
-    "start": "2023-07-07T04:35:25.302Z",
-    "end": "2023-07-07T04:35:27.397Z",
-    "duration": 2095,
-    "testsRegistered": 1,
+    "start": "2023-07-07T04:46:21.250Z",
+    "end": "2023-07-07T04:46:27.089Z",
+    "duration": 5839,
+    "testsRegistered": 5,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,16 +18,55 @@
   },
   "results": [
     {
-      "uuid": "3a91dbaf-baa8-46e5-a9aa-d849d6fe5d8e",
+      "uuid": "c4355b66-d005-48cd-bdfd-b0218fbafb9c",
       "title": "",
-      "fullFile": "C:\\Users\\USER\\Documents\\apiHerokuapp\\tests\\scenarios\\delete-booking.test.js",
-      "file": "\\tests\\scenarios\\delete-booking.test.js",
+      "fullFile": "",
+      "file": "",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "9cb56dc2-c486-42f4-b3c5-b5bf2285d85a",
+          "uuid": "846677dd-50c7-44d6-b4da-9ab63baf05e2",
+          "title": "Creating booking",
+          "fullFile": "C:\\Users\\USER\\Documents\\apiHerokuapp\\tests\\scenarios\\creating-booking.test.js",
+          "file": "\\tests\\scenarios\\creating-booking.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Creating booking successfully with valid data",
+              "fullTitle": "Creating booking Creating booking successfully with valid data",
+              "timedOut": false,
+              "duration": 1264,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await herokuappAPI.creating_booking(data.VALID_BOOKING);\nassert.equal(response.status, 200);\nassert.equal(response.data.booking.firstname, \"Argavi\")",
+              "err": {},
+              "uuid": "07d31191-e944-44d9-9322-538b4e061469",
+              "parentUUID": "846677dd-50c7-44d6-b4da-9ab63baf05e2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "07d31191-e944-44d9-9322-538b4e061469"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1264,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8de4ae51-2cce-40c7-8bf6-890493181300",
           "title": "Deleting booking",
           "fullFile": "C:\\Users\\USER\\Documents\\apiHerokuapp\\tests\\scenarios\\delete-booking.test.js",
           "file": "\\tests\\scenarios\\delete-booking.test.js",
@@ -38,7 +77,7 @@
               "title": "Delete booking successfully",
               "fullTitle": "Deleting booking Delete booking successfully",
               "timedOut": false,
-              "duration": 2080,
+              "duration": 1731,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +86,117 @@
               "context": null,
               "code": "// Creating booking first\nconst responseCreate = await herokuappAPI.creating_booking(data.VALID_BOOKING);\nconst bookingId = responseCreate.data.bookingid\n// Deleting booking\nconst responseDel = await herokuappAPI.delete_booking(bookingId);\nassert.equal(responseDel.status, 201);",
               "err": {},
-              "uuid": "515f6e8b-1fd8-4cef-9f50-948e91e504f1",
-              "parentUUID": "9cb56dc2-c486-42f4-b3c5-b5bf2285d85a",
+              "uuid": "41720c64-4278-4ee6-9f5e-9867c0feaea4",
+              "parentUUID": "8de4ae51-2cce-40c7-8bf6-890493181300",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "515f6e8b-1fd8-4cef-9f50-948e91e504f1"
+            "41720c64-4278-4ee6-9f5e-9867c0feaea4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2080,
+          "duration": 1731,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f21a54ec-2465-4b02-9f54-97640a80bde4",
+          "title": "Get booking",
+          "fullFile": "C:\\Users\\USER\\Documents\\apiHerokuapp\\tests\\scenarios\\get-booking.test.js",
+          "file": "\\tests\\scenarios\\get-booking.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get booking by id successfully",
+              "fullTitle": "Get booking Get booking by id successfully",
+              "timedOut": false,
+              "duration": 833,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await herokuappAPI.booking_detail();\nassert.equal(response.status, 200);\nassert.equal(response.data.firstname, \"Josh\");\nassert.equal(response.data.lastname, \"Allen\")",
+              "err": {},
+              "uuid": "7be4c6b5-d937-4f9a-89c8-152ba12df269",
+              "parentUUID": "f21a54ec-2465-4b02-9f54-97640a80bde4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get list booking filtered by checkin & checkout successfully",
+              "fullTitle": "Get booking Get list booking filtered by checkin & checkout successfully",
+              "timedOut": false,
+              "duration": 853,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const param = getParams(data.LIST_BOOKING_PARAM)\nconst response = await herokuappAPI.list_booking(param);\nassert.equal(response.status, 200);",
+              "err": {},
+              "uuid": "ead6d592-0e59-4b37-a59b-cebc22035501",
+              "parentUUID": "f21a54ec-2465-4b02-9f54-97640a80bde4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7be4c6b5-d937-4f9a-89c8-152ba12df269",
+            "ead6d592-0e59-4b37-a59b-cebc22035501"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1686,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "e806e76e-e65a-4cbf-8a73-fc154603e974",
+          "title": "Updating booking",
+          "fullFile": "C:\\Users\\USER\\Documents\\apiHerokuapp\\tests\\scenarios\\update-booking.test.js",
+          "file": "\\tests\\scenarios\\update-booking.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Update booking using valid data successfully",
+              "fullTitle": "Updating booking Update booking using valid data successfully",
+              "timedOut": false,
+              "duration": 1122,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await herokuappAPI.update_booking(data.VALID_BOOKING);\nassert.equal(response.status, 200);\nassert.equal(response.data.firstname, \"Argavi\")",
+              "err": {},
+              "uuid": "36c0a993-0bd9-4d42-8aff-c88007fa1473",
+              "parentUUID": "e806e76e-e65a-4cbf-8a73-fc154603e974",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "36c0a993-0bd9-4d42-8aff-c88007fa1473"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1122,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

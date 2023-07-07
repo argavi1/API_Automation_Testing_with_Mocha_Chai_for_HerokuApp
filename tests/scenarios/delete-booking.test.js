@@ -3,7 +3,7 @@ import herokuappAPI from '$root/page/herokuapp.api';
 import * as data from '$root/data/booking.data';
 
 describe('Deleting booking', () => {
-    it.only('Delete booking successfully', async() => {
+    it('Delete booking successfully', async() => {
         // Creating booking first
         const responseCreate = await herokuappAPI.creating_booking(data.VALID_BOOKING);
         const bookingId = responseCreate.data.bookingid

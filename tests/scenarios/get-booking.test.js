@@ -9,13 +9,13 @@ describe('Get booking', () => {
         const response = await herokuappAPI.booking_detail();
 
         assert.equal(response.status, 200);
-        assert.equal(response.data.firstname, "Jim");
-        assert.equal(response.data.lastname, "Brown")
+        assert.equal(response.data.firstname, "Josh");
+        assert.equal(response.data.lastname, "Allen")
 
     })
 
     it('Get list booking filtered by checkin & checkout successfully', async() => {
-        const param = getParams(data.LIST_BOOKING_PARAM)
+        const param = getParams(data.LIST_BOOKING_PARAM);
         const response = await herokuappAPI.list_booking(param);
 
         assert.equal(response.status, 200);
